@@ -7,6 +7,7 @@ public class TerminatorQuoter implements Quoter {
         this.message = message;
     }
 
+    @Override
     public void sayQuote() {
         System.out.println("message = " + message);
 
