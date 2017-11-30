@@ -7,6 +7,7 @@
     <context:annotation-config/>
 
     <bean class="quoters.ProfilingHandlerBeanPostProcessor"/>
+    <bean class="quoters.PostProxyInvokerContextListener"/>
 
     <bean class="quoters.TerminatorQuoter" id="terminatorQuoter">
         <property name="message" value="I'll be back"/>
