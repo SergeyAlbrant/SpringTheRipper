@@ -10,8 +10,7 @@ import java.util.Random;
 @org.springframework.stereotype.Component
 public class ColorFrame extends JFrame {
     @Autowired
-    //private Color color;
-    private ApplicationContext context;
+    private Color color;
 
     public ColorFrame() throws HeadlessException {
         setSize(200, 200);
@@ -22,7 +21,7 @@ public class ColorFrame extends JFrame {
     public void showOnRandomPlace() {
         Random random = new Random();
         setLocation(random.nextInt(1200), random.nextInt(700));
-        getContentPane().setBackground(context.getBean(Color.class));
+        getContentPane().setBackground(color);
         repaint();
     }
 }
