@@ -1,13 +1,17 @@
 package screensaver;
 
-import org.springframework.stereotype.Component;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Scope;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
-@Component
+
+@org.springframework.stereotype.Component
 public class ColorFrame extends JFrame {
-    private Color color;
+    @Autowired
+    //private Color color;
+    private ApplicationContext context;
 
     public ColorFrame() throws HeadlessException {
         setSize(200, 200);
@@ -15,10 +19,10 @@ public class ColorFrame extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-    public void showOnRandomPlace(){
+    public void showOnRandomPlace() {
         Random random = new Random();
-        setLocation(random.nextInt(1200),random.nextInt(700));
-        getContentPane().setBackground(color);
+        setLocation(random.nextInt(1200), random.nextInt(700));
+        getContentPane().setBackground(context.getBean(Color.class));
         repaint();
     }
 }
